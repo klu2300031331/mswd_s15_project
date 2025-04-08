@@ -1,0 +1,1442 @@
+// // import React, { useState } from "react";  
+// // import { useNavigate } from "react-router-dom";  
+// // import axios from "axios";  
+
+// // function Login({ setIsAuthenticated }) {  
+// //   const [username, setUsername] = useState("");  
+// //   const [password, setPassword] = useState("");  
+// //   const navigate = useNavigate();  
+
+// //   const handleLogin = async () => {  
+// //     try {  
+// //       const response = await axios.post('http://your-server-url/login', {  
+// //         email: username,  
+// //         password: password,  
+// //       });  
+
+// //       localStorage.setItem("token", response.data.token);  
+// //       setIsAuthenticated(true);  
+// //       navigate("/");  
+// //     } catch (error) {  
+// //       console.error("Login error:", error.response?.data);  
+// //       alert(error.response?.data?.message || "An error occurred during login!");  
+// //     }  
+// //   };  
+
+// //   return (  
+// //     <div className="login-container">  
+// //       <h1>Login</h1>  
+// //       <form>  
+// //         <label>Username (Email)</label>  
+// //         <input  
+// //           type="text"  
+// //           value={username}  
+// //           onChange={(e) => setUsername(e.target.value)}  
+// //         />  
+// //         <label>Password</label>  
+// //         <input  
+// //           type="password"  
+// //           value={password}  
+// //           onChange={(e) => setPassword(e.target.value)}  
+// //         />  
+// //         <button type="button" onClick={handleLogin}>Login</button>  
+// //       </form>  
+// //     </div>  
+// //   );  
+// // }  
+
+// // export default Login;  
+
+// // import React, { useState } from "react";
+// // import { useNavigate } from "react-router-dom";
+
+
+// // function Login({ setIsAuthenticated }) {
+// //   const [username, setUsername] = useState("");
+// //   const [password, setPassword] = useState("");
+// //   const navigate = useNavigate();
+
+// //   const handleLogin = async () => {
+// //     if (username === "admin" && password === "password") {
+// //       localStorage.setItem("token", "your-jwt-token");
+// //       setIsAuthenticated(true);
+// //       navigate("/");
+// //     } else {
+// //       alert("Invalid credentials!");
+// //     }
+// //   };
+
+// //   return (
+// //     <div className="login-container">
+// //       <h1>Login</h1>
+// //       <form>
+// //         <label>Username</label>
+// //         <input
+// //           type="text"
+// //           value={username}
+// //           onChange={(e) => setUsername(e.target.value)}
+// //         />
+// //         <label>Password</label>
+// //         <input
+// //           type="password"
+// //           value={password}
+// //           onChange={(e) => setPassword(e.target.value)}
+// //         />
+// //         <button type="button" onClick={handleLogin}>Login</button>
+// //       </form>
+// //     </div>
+// //   );
+// // }
+
+// // export default Login;
+
+// // import React, { useState } from "react";
+// // import { useNavigate } from "react-router-dom";
+// // import { Button, TextField, Container } from "@mui/material";
+
+// // function Login({ setIsAuthenticated }) {
+// //   const [username, setUsername] = useState("");
+// //   const [password, setPassword] = useState("");
+// //   const navigate = useNavigate();
+
+// //   const handleLogin = async () => {
+// //     // Simulate API call for login
+// //     if (username === "admin" && password === "password") {
+// //       localStorage.setItem("token", "your-jwt-token");  // Simulate storing JWT token
+// //       setIsAuthenticated(true);  // Update the authenticated state
+// //       navigate("/");  // Redirect to home or dashboard after login
+// //     } else {
+// //       alert("Invalid credentials!");
+// //     }
+// //   };
+
+// //   return (
+// //     <Container>
+// //       <TextField
+// //         label="Username"
+// //         variant="outlined"
+// //         fullWidth
+// //         margin="normal"
+// //         value={username}
+// //         onChange={(e) => setUsername(e.target.value)}
+// //       />
+// //       <TextField
+// //         label="Password"
+// //         type="password"
+// //         variant="outlined"
+// //         fullWidth
+// //         margin="normal"
+// //         value={password}
+// //         onChange={(e) => setPassword(e.target.value)}
+// //       />
+// //       <Button onClick={handleLogin} variant="contained" fullWidth>
+// //         Login
+// //       </Button>
+// //     </Container>
+// //   );
+// // }
+
+// // export default Login;
+
+
+
+// // import React, { useState } from "react";
+// // import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+// // import axios from "axios";
+// // import './Layout.css';
+
+// // const Login = () => {
+// //   const [email, setEmail] = useState("");
+// //   const [password, setPassword] = useState("");
+// //   const [error, setError] = useState("");
+// //   const navigate = useNavigate(); // To navigate after login success
+
+// //   const handleSubmit = async (e) => {
+// //     e.preventDefault();
+
+// //     if (!email || !password) {
+// //       setError("Email and password are required!");
+// //       return;
+// //     }
+
+// //     try {
+// //       const response = await axios.post(
+// //         "http://localhost:3000/login", // Replace with your backend login route
+// //         { email, password },
+// //         { headers: { "Content-Type": "application/json" } }
+// //       );
+
+// //       if (response.status === 200) {
+// //         // On success, store token in localStorage
+// //         localStorage.setItem('token', response.data.token);
+// //         alert(response.data.message || "Login successful!");
+
+// //         // Redirect to Profile
+// //         navigate('/profile');
+// //       } else {
+// //         setError("Invalid credentials!");
+// //       }
+// //     } catch (error) {
+// //       console.error("Error logging in:", error.response ? error.response.data : error.message);
+// //       setError(error.response?.data?.message || "Server error. Please try again later.");
+// //     }
+// //   };
+
+// //   return (
+// //     <div className="login-container">
+// //       <h1>Login</h1>
+// //       <form onSubmit={handleSubmit}>
+// //         <label>Email</label>
+// //         <input
+// //           type="email"
+// //           placeholder="Email"
+// //           value={email}
+// //           onChange={(e) => setEmail(e.target.value)}
+// //           required
+// //         />
+
+// //         <label>Password</label>
+// //         <input
+// //           type="password"
+// //           placeholder="Password"
+// //           value={password}
+// //           onChange={(e) => setPassword(e.target.value)}
+// //           required
+// //         />
+
+// //         {error && <p className="error-message">{error}</p>}
+// //         <button type="submit">Login</button>
+// //       </form>
+// //     </div>
+// //   );
+// // };
+
+// // export default Login;
+
+
+
+
+
+// import React, { useState } from "react";
+// import "./Layout.css";
+// import axios from "axios";
+
+// const Login = () => {
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [error, setError] = useState("");
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     if (!email || !password) {
+//       setError("Email and password are required!");
+//       return;
+//     }
+
+//     console.log("Attempting login with:", { email, password });
+
+//     try {
+//       const response = await axios.post(
+//         "http://localhost:3000/login",
+//         { email, password },
+//         { headers: { "Content-Type": "application/json" } }
+//       );
+
+//       console.log("Server response:", response.data);
+
+//       if (response.status === 200) {
+//         alert(response.data.message || "Login successful!");
+//         setError("");
+//       } else {
+//         setError("Invalid credentials!");
+//       }
+//     } catch (error) {
+//       console.error("Error logging in:", error.response ? error.response.data : error.message);
+
+//       if (error.response && error.response.data && error.response.data.message) {
+//         setError(error.response.data.message);
+//       } else if (error.message.includes("Network Error")) {
+//         setError("Cannot connect to the server. Please try again later.");
+//       } else {
+//         setError("Server error. Please try again later.");
+//       }
+//     }
+//   };
+
+//   return (
+//     <div className="login-container">
+//       <h1>Login</h1>
+//       <form onSubmit={handleSubmit}>
+//         <label>Email</label>
+//         <input
+//           type="email"
+//           placeholder="Email"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//           required
+//         />
+
+//         <label>Password</label>
+//         <input
+//           type="password"
+//           placeholder="Password"
+//           value={password}
+//           onChange={(e) => setPassword(e.target.value)}
+//           required
+//         />
+
+//         {error && <p className="error-message">{error}</p>}
+//         <button type="submit">Login</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // // import React, { useState } from "react";
+// // // import "./Layout.css";
+// // // import axios from "axios";
+
+// // // const Login = () => {
+// // //   const [email, setEmail] = useState("");
+// // //   const [password, setPassword] = useState("");
+// // //   const [error, setError] = useState("");
+
+// // //   const handleSubmit = async (e) => {
+// // //     e.preventDefault();
+
+// // //     if (!email || !password) {
+// // //       setError("Email and password are required!");
+// // //       return;
+// // //     }
+
+// // //     console.log("Attempting login with:", { email, password });
+
+// // //     try {
+// // //       const response = await axios.post(
+// // //         "http://localhost:3000/login",
+// // //         { email, password },
+// // //         { headers: { "Content-Type": "application/json" } }
+// // //       );
+
+// // //       console.log("Server response:", response.data);
+
+// // //       if (response.status === 200 && response.data.message === "Login successful") {
+// // //         alert("Login successful!");
+// // //         setError("");
+// // //       } else {
+// // //         setError("Invalid credentials!");
+// // //       }
+// // //     } catch (error) {
+// // //       console.error("Error logging in:", error.response ? error.response.data : error.message);
+
+// // //       // Display backend error message if available
+// // //       if (error.response && error.response.data.message) {
+// // //         setError(error.response.data.message);
+// // //       } else {
+// // //         setError("Server error. Please try again later.");
+// // //       }
+// // //     }
+// // //   };
+
+// // //   return (
+// // //     <div className="login-container">
+// // //       <h1>Login</h1>
+// // //       <form onSubmit={handleSubmit}>
+// // //         <label>Email</label>
+// // //         <input
+// // //           type="email"
+// // //           placeholder="Email"
+// // //           value={email}
+// // //           onChange={(e) => setEmail(e.target.value)}
+// // //           required
+// // //         />
+
+// // //         <label>Password</label>
+// // //         <input
+// // //           type="password"
+// // //           placeholder="Password"
+// // //           value={password}
+// // //           onChange={(e) => setPassword(e.target.value)}
+// // //           required
+// // //         />
+
+// // //         {error && <p className="error-message">{error}</p>}
+// // //         <button type="submit">Login</button>
+// // //       </form>
+// // //     </div>
+// // //   );
+// // // };
+
+// // // export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+
+// function Profile() {
+//   const [user, setUser] = useState(null);
+//   const [error, setError] = useState("");
+
+//   useEffect(() => {
+//     const fetchProfile = async () => {
+//       const token = localStorage.getItem("token");
+
+//       if (!token) {
+//         setError("User not authenticated");
+//         return;
+//       }
+
+//       try {
+//         const res = await axios.get("http://localhost:3000/profile", {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         });
+//         setUser(res.data.user);
+//       } catch (err) {
+//         setError("Access denied or token expired");
+//       }
+//     };
+
+//     fetchProfile();
+//   }, []);
+
+//   if (error) return <p>{error}</p>;
+//   if (!user) return <p>Loading...</p>;
+
+//   return (
+//     <div>
+//       <h2>Welcome, {user.name}</h2>
+//       <p>Email: {user.email}</p>
+//     </div>
+//   );
+// }
+
+// export default Profile;
+
+
+
+
+
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+
+// function Profile() {
+//   const [user, setUser] = useState(null);
+//   const [error, setError] = useState("");
+
+//   useEffect(() => {
+//     const fetchProfile = async () => {
+//       const token = localStorage.getItem("token");
+
+//       if (!token) {
+//         setError("User not authenticated");
+//         return;
+//       }
+
+//       try {
+//         const res = await axios.get("http://localhost:3000/profile", {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         });
+//         setUser(res.data.user);
+//       } catch (err) {
+//         setError("Access denied or token expired");
+//       }
+//     };
+
+//     fetchProfile();
+//   }, []);
+
+//   if (error) return <p>{error}</p>;
+//   if (!user) return <p>Loading...</p>;
+
+//   return (
+//     <div>
+//       <h2>Welcome, {user.name}</h2>
+//       <p>Email: {user.email}</p>
+     
+//     </div>
+//   );
+// }
+
+// export default Profile;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // import React, { useState, useEffect } from "react";
+// // import { Link, useNavigate } from "react-router-dom";
+// // import AppBar from '@mui/material/AppBar';
+// // import Box from '@mui/material/Box';
+// // import Toolbar from '@mui/material/Toolbar';
+// // import IconButton from '@mui/material/IconButton';
+// // import Typography from '@mui/material/Typography';
+// // import Menu from '@mui/material/Menu';
+// // import MenuIcon from '@mui/icons-material/Menu';
+// // import Container from '@mui/material/Container';
+// // import Avatar from '@mui/material/Avatar';
+// // import Button from '@mui/material/Button';
+// // import Tooltip from '@mui/material/Tooltip';
+// // import MenuItem from '@mui/material/MenuItem';
+// // import AdbIcon from '@mui/icons-material/Adb';
+
+// // const pages = [
+// //   { name: 'Home', path: '/' },
+// //   { name: 'About', path: '/about' },
+// //   { name: 'Counter', path: '/counter' },
+// //   { name: 'DataRest', path: '/datafetch' },
+// //   { name: 'Profile', path: '/profile' },
+// // ];
+
+// // const authPages = [
+// //   { name: 'Logout', path: '/logout' },
+// // ];
+
+// // function ResponsiveAppBar() {
+// //   const [anchorElNav, setAnchorElNav] = useState(null);
+// //   const [anchorElUser, setAnchorElUser] = useState(null);
+// //   const [isAuthenticated, setIsAuthenticated] = useState(false);
+// //   const navigate = useNavigate();
+
+// //   // Check if the user is logged in when the component mounts
+// //   useEffect(() => {
+// //     const token = localStorage.getItem("token");
+// //     if (token) {
+// //       setIsAuthenticated(true);
+// //     }
+// //   }, []);
+
+// //   const handleOpenNavMenu = (event) => {
+// //     setAnchorElNav(event.currentTarget);
+// //   };
+
+// //   const handleOpenUserMenu = (event) => {
+// //     setAnchorElUser(event.currentTarget);
+// //   };
+
+// //   const handleCloseNavMenu = () => {
+// //     setAnchorElNav(null);
+// //   };
+
+// //   const handleCloseUserMenu = () => {
+// //     setAnchorElUser(null);
+// //   };
+
+// //   const handleLogout = () => {
+// //     localStorage.removeItem("token");
+// //     setIsAuthenticated(false);
+// //     navigate("/login");
+// //   };
+
+// //   return (
+// //     <AppBar position="static">
+// //       <Container maxWidth="xl">
+// //         <Toolbar disableGutters>
+// //           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+// //           <Typography
+// //             variant="h6"
+// //             noWrap
+// //             component="a"
+// //             href="#"
+// //             sx={{
+// //               mr: 2,
+// //               display: { xs: 'none', md: 'flex' },
+// //               fontFamily: 'monospace',
+// //               fontWeight: 700,
+// //               letterSpacing: '.3rem',
+// //               color: 'inherit',
+// //               textDecoration: 'none',
+// //             }}
+// //           >
+// //             LOGO
+// //           </Typography>
+
+// //           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+// //             <IconButton
+// //               size="large"
+// //               aria-label="account of current user"
+// //               aria-controls="menu-appbar"
+// //               aria-haspopup="true"
+// //               onClick={handleOpenNavMenu}
+// //               color="inherit"
+// //             >
+// //               <MenuIcon />
+// //             </IconButton>
+// //             <Menu
+// //               id="menu-appbar"
+// //               anchorEl={anchorElNav}
+// //               anchorOrigin={{
+// //                 vertical: 'bottom',
+// //                 horizontal: 'left',
+// //               }}
+// //               keepMounted
+// //               transformOrigin={{
+// //                 vertical: 'top',
+// //                 horizontal: 'left',
+// //               }}
+// //               open={Boolean(anchorElNav)}
+// //               onClose={handleCloseNavMenu}
+// //               sx={{ display: { xs: 'block', md: 'none' } }}
+// //             >
+// //               {(isAuthenticated ? pages : []).map((page) => (
+// //                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+// //                   <Typography
+// //                     component={Link}
+// //                     to={page.path}
+// //                     sx={{ textDecoration: 'none', color: 'inherit' }}
+// //                   >
+// //                     {page.name}
+// //                   </Typography>
+// //                 </MenuItem>
+// //               ))}
+// //               {!isAuthenticated && (
+// //                 <>
+// //                   <MenuItem key="login" onClick={handleCloseNavMenu}>
+// //                     <Typography component={Link} to="/login" sx={{ textDecoration: 'none', color: 'inherit' }}>
+// //                       Login
+// //                     </Typography>
+// //                   </MenuItem>
+// //                   <MenuItem key="register" onClick={handleCloseNavMenu}>
+// //                     <Typography component={Link} to="/register" sx={{ textDecoration: 'none', color: 'inherit' }}>
+// //                       Register
+// //                     </Typography>
+// //                   </MenuItem>
+// //                 </>
+// //               )}
+// //             </Menu>
+// //           </Box>
+
+// //           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+// //             {(isAuthenticated ? pages : []).map((page) => (
+// //               <Button
+// //                 key={page.name}
+// //                 component={Link}
+// //                 to={page.path}
+// //                 sx={{ my: 2, color: 'white', display: 'block' }}
+// //               >
+// //                 {page.name}
+// //               </Button>
+// //             ))}
+// //             {!isAuthenticated && (
+// //               <>
+// //                 <Button
+// //                   key="login"
+// //                   component={Link}
+// //                   to="/login"
+// //                   sx={{ my: 2, color: 'white', display: 'block' }}
+// //                 >
+// //                   Login
+// //                 </Button>
+// //                 <Button
+// //                   key="register"
+// //                   component={Link}
+// //                   to="/register"
+// //                   sx={{ my: 2, color: 'white', display: 'block' }}
+// //                 >
+// //                   Register
+// //                 </Button>
+// //               </>
+// //             )}
+// //           </Box>
+
+// //           {isAuthenticated && (
+// //             <Box sx={{ flexGrow: 0 }}>
+// //               <Tooltip title="Open settings">
+// //                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+// //                   <Avatar alt="Remy Sharp" src="gowtham.png" />
+// //                 </IconButton>
+// //               </Tooltip>
+// //               <Menu
+// //                 sx={{ mt: '45px' }}
+// //                 id="menu-appbar"
+// //                 anchorEl={anchorElUser}
+// //                 anchorOrigin={{
+// //                   vertical: 'top',
+// //                   horizontal: 'right',
+// //                 }}
+// //                 keepMounted
+// //                 transformOrigin={{
+// //                   vertical: 'top',
+// //                   horizontal: 'right',
+// //                 }}
+// //                 open={Boolean(anchorElUser)}
+// //                 onClose={handleCloseUserMenu}
+// //               >
+// //                 {authPages.map((setting) => (
+// //                   <MenuItem key={setting.name} onClick={handleLogout}>
+// //                     <Typography textAlign="center">{setting.name}</Typography>
+// //                   </MenuItem>
+// //                 ))}
+// //               </Menu>
+// //             </Box>
+// //           )}
+// //         </Toolbar>
+// //       </Container>
+// //     </AppBar>
+// //   );
+// // }
+
+// // export default ResponsiveAppBar;
+
+
+
+
+// import React, { useState, useEffect } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import AppBar from '@mui/material/AppBar';
+// import Box from '@mui/material/Box';
+// import Toolbar from '@mui/material/Toolbar';
+// import IconButton from '@mui/material/IconButton';
+// import Typography from '@mui/material/Typography';
+// import Menu from '@mui/material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import Container from '@mui/material/Container';
+// import Avatar from '@mui/material/Avatar';
+// import Button from '@mui/material/Button';
+// import Tooltip from '@mui/material/Tooltip';
+// import MenuItem from '@mui/material/MenuItem';
+// import AdbIcon from '@mui/icons-material/Adb';
+
+// const pages = [
+//   { name: 'Home', path: '/' },
+//   { name: 'About', path: '/about' },
+//   { name: 'Counter', path: '/counter' },
+//   { name: 'DataRest', path: '/datafetch' },
+//   { name: 'Profile', path: '/profile' },
+// ];
+
+// const authPages = [
+//   { name: 'Logout', path: '/logout' },
+// ];
+
+// function ResponsiveAppBar() {
+//   const [anchorElNav, setAnchorElNav] = useState(null);
+//   const [anchorElUser, setAnchorElUser] = useState(null);
+//   const [isAuthenticated, setIsAuthenticated] = useState(false);
+//   const navigate = useNavigate();
+
+//   // Check if the user is logged in when the component mounts
+//   useEffect(() => {
+//     const token = localStorage.getItem("token");
+//     if (token) {
+//       setIsAuthenticated(true);
+//     }
+//   }, []);
+
+//   const handleOpenNavMenu = (event) => {
+//     setAnchorElNav(event.currentTarget);
+//   };
+
+//   const handleOpenUserMenu = (event) => {
+//     setAnchorElUser(event.currentTarget);
+//   };
+
+//   const handleCloseNavMenu = () => {
+//     setAnchorElNav(null);
+//   };
+
+//   const handleCloseUserMenu = () => {
+//     setAnchorElUser(null);
+//   };
+
+//   const handleLogout = () => {
+//     localStorage.removeItem("token");
+//     setIsAuthenticated(false);
+//     navigate("/login");
+//   };
+
+//   return (
+//     <AppBar position="static">
+//       <Container maxWidth="xl">
+//         <Toolbar disableGutters>
+//           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+//           <Typography
+//             variant="h6"
+//             noWrap
+//             component="a"
+//             href="#"
+//             sx={{
+//               mr: 2,
+//               display: { xs: 'none', md: 'flex' },
+//               fontFamily: 'monospace',
+//               fontWeight: 700,
+//               letterSpacing: '.3rem',
+//               color: 'inherit',
+//               textDecoration: 'none',
+//             }}
+//           >
+//             LOGO
+//           </Typography>
+
+//           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+//             <IconButton
+//               size="large"
+//               aria-label="account of current user"
+//               aria-controls="menu-appbar"
+//               aria-haspopup="true"
+//               onClick={handleOpenNavMenu}
+//               color="inherit"
+//             >
+//               <MenuIcon />
+//             </IconButton>
+//             <Menu
+//               id="menu-appbar"
+//               anchorEl={anchorElNav}
+//               anchorOrigin={{
+//                 vertical: 'bottom',
+//                 horizontal: 'left',
+//               }}
+//               keepMounted
+//               transformOrigin={{
+//                 vertical: 'top',
+//                 horizontal: 'left',
+//               }}
+//               open={Boolean(anchorElNav)}
+//               onClose={handleCloseNavMenu}
+//               sx={{ display: { xs: 'block', md: 'none' } }}
+//             >
+//               {(isAuthenticated ? pages : []).map((page) => (
+//                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+//                   <Typography
+//                     component={Link}
+//                     to={page.path}
+//                     sx={{ textDecoration: 'none', color: 'inherit' }}
+//                   >
+//                     {page.name}
+//                   </Typography>
+//                 </MenuItem>
+//               ))}
+//               {!isAuthenticated && (
+//                 <>
+//                   <MenuItem key="login" onClick={handleCloseNavMenu}>
+//                     <Typography component={Link} to="/login" sx={{ textDecoration: 'none', color: 'inherit' }}>
+//                       Login
+//                     </Typography>
+//                   </MenuItem>
+//                   <MenuItem key="register" onClick={handleCloseNavMenu}>
+//                     <Typography component={Link} to="/register" sx={{ textDecoration: 'none', color: 'inherit' }}>
+//                       Register
+//                     </Typography>
+//                   </MenuItem>
+//                 </>
+//               )}
+//             </Menu>
+//           </Box>
+
+//           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+//             {(isAuthenticated ? pages : []).map((page) => (
+//               <Button
+//                 key={page.name}
+//                 component={Link}
+//                 to={page.path}
+//                 sx={{ my: 2, color: 'white', display: 'block' }}
+//               >
+//                 {page.name}
+//               </Button>
+//             ))}
+//             {!isAuthenticated && (
+//               <>
+//                 <Button
+//                   key="login"
+//                   component={Link}
+//                   to="/login"
+//                   sx={{ my: 2, color: 'white', display: 'block' }}
+//                 >
+//                   Login
+//                 </Button>
+//                 <Button
+//                   key="register"
+//                   component={Link}
+//                   to="/register"
+//                   sx={{ my: 2, color: 'white', display: 'block' }}
+//                 >
+//                   Register
+//                 </Button>
+//               </>
+//             )}
+//           </Box>
+
+//           {isAuthenticated && (
+//             <Box sx={{ flexGrow: 0 }}>
+//               <Tooltip title="Open settings">
+//                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+//                   <Avatar alt="Remy Sharp" src="gowtham.png" />
+//                 </IconButton>
+//               </Tooltip>
+//               <Menu
+//                 sx={{ mt: '45px' }}
+//                 id="menu-appbar"
+//                 anchorEl={anchorElUser}
+//                 anchorOrigin={{
+//                   vertical: 'top',
+//                   horizontal: 'right',
+//                 }}
+//                 keepMounted
+//                 transformOrigin={{
+//                   vertical: 'top',
+//                   horizontal: 'right',
+//                 }}
+//                 open={Boolean(anchorElUser)}
+//                 onClose={handleCloseUserMenu}
+//               >
+//                 {authPages.map((setting) => (
+//                   <MenuItem key={setting.name} onClick={handleLogout}>
+//                     <Typography textAlign="center">{setting.name}</Typography>
+//                   </MenuItem>
+//                 ))}
+//               </Menu>
+//             </Box>
+//           )}
+//         </Toolbar>
+//       </Container>
+//     </AppBar>
+//   );
+// }
+
+// export default ResponsiveAppBar;
+
+
+
+
+
+
+
+
+
+
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
+// const User = require("./models/User");
+
+// const JWT_SECRET = "Gowtham";
+
+// const app = express();
+// app.use(cors());
+// app.use(express.json());
+
+// const mongoURI =
+//   "mongodb+srv://gowtham444:Gowtham847@cluster0.9rc18.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// mongoose
+//   .connect(mongoURI)
+//   .then(() => console.log("MongoDB connected successfully"))
+//   .catch((error) => console.log("Unable to connect to MongoDB Atlas: " + error));
+
+// // Middleware for Protected Routes
+// const authMiddleware = (req, res, next) => {
+//   const token = req.header("Authorization");
+//   if (!token) return res.status(401).json({ message: "Access denied. No token provided." });
+
+//   try {
+//     const decoded = jwt.verify(token.split(" ")[1], JWT_SECRET);
+//     req.user = decoded;
+//     next();
+//   } catch (error) {
+//     res.status(400).json({ message: "Invalid token" });
+//   }
+// };
+
+// // Register User (Hash Password)
+// app.post("/users", async (req, res) => {
+//   try {
+//     const { name, email, phone, password, confirmpassword, role } = req.body;
+
+//     const existingUser = await User.findOne({ email });
+//     if (existingUser) {
+//       return res.status(400).json({ message: "User already exists" });
+//     }
+
+//     const salt = await bcrypt.genSalt(10);
+//     const hashedPassword = await bcrypt.hash(password, salt);
+//     const hashedConfirmPassword = await bcrypt.hash(confirmpassword, salt);
+
+//     const user = new User({
+//       name,
+//       email,
+//       phone,
+//       password: hashedPassword,
+//       confirmpassword: hashedConfirmPassword,
+//       role,
+//     });
+
+//     await user.save();
+//     res.status(201).json({ message: "Inserted data successfully", user });
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// });
+
+// // Login User & Generate JWT Token
+// app.post("/login", async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+
+//     if (!email || !password) {
+//       return res.status(400).json({ message: "Email and password are required" });
+//     }
+
+//     const user = await User.findOne({ email });
+//     if (!user) {
+//       return res.status(400).json({ message: "Invalid email or password" });
+//     }
+
+//     const isMatch = await bcrypt.compare(password, user.password);
+//     if (!isMatch) {
+//       return res.status(400).json({ message: "Invalid email or password" });
+//     }
+
+//     const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, { expiresIn: "1h" });
+
+//     res.status(200).json({ message: "Login successful", token });
+//   } catch (error) {
+//     res.status(500).json({ message: "Internal Server Error" });
+//   }
+// });
+
+// // Get All Users
+// app.get("/getusers", async (req, res) => {
+//   try {
+//     const users = await User.find();
+//     res.status(200).json(users);
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// });
+
+// // Update User (with Password Hashing)
+// app.put("/updateUsers/:id", async (req, res) => {
+//   try {
+//     const userid = req.params.id;
+//     const { name, email, phone, password, confirmpassword, role } = req.body;
+
+//     const salt = await bcrypt.genSalt(10);
+//     const hashedPassword = await bcrypt.hash(password, salt);
+//     const hashedConfirmPassword = await bcrypt.hash(confirmpassword, salt);
+
+//     const updateUsers = await User.findByIdAndUpdate(
+//       userid,
+//       { name, email, phone, password: hashedPassword, confirmpassword: hashedConfirmPassword, role },
+//       { new: true, runValidators: true }
+//     );
+
+//     if (!updateUsers) {
+//       return res.status(400).json({ message: "User not found to update" });
+//     }
+
+//     res.status(200).json({ message: "Updated user successfully" });
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// });
+
+// // Delete User
+// app.delete("/deleteuser/:id", async (req, res) => {
+//   try {
+//     const userid = req.params.id;
+//     const deleteuser = await User.findByIdAndDelete(userid);
+//     if (!deleteuser) {
+//       return res.status(404).json({ message: "User not found to delete" });
+//     }
+//     res.status(200).json({ message: "User deleted successfully" });
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// });
+
+// // Get Profile (Protected Route)
+// app.get("/profile", authMiddleware, async (req, res) => {
+//   try {
+//     const user = await User.findById(req.user.id).select("-password");
+//     res.json({ user });
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// });
+
+// // Home Routes
+// app.get("/", (req, res) => {
+//   res.send("<h1>Welcome to Express</h1>");
+// });
+
+// app.get("/home", (req, res) => {
+//   res.send("<h1>Welcome to Home page</h1>");
+// });
+
+// // Start Server
+// const PORT = 3000;
+// app.listen(PORT, () => {
+//   console.log(`Express server is running on port ${PORT}`);
+// });
+
+
+
+// // const express = require("express");
+// // const mongoose = require("mongoose");
+// // const cors = require("cors");
+// // const bcrypt = require("bcryptjs");
+// // const jwt = require("jsonwebtoken");
+// // const User = require("./models/User");
+
+// // const JWT_SECRET = "Gowtham";
+
+// // const app = express();
+// // app.use(cors());
+// // app.use(express.json());
+
+// // const mongoURI =
+// //   "mongodb+srv://gowtham444:Gowtham847@cluster0.9rc18.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// // mongoose
+// //   .connect(mongoURI)
+// //   .then(() => console.log("MongoDB connected successfully"))
+// //   .catch((error) => console.log("Unable to connect to MongoDB Atlas: " + error));
+
+// // // Middleware for Protected Routes
+// // const authMiddleware = (req, res, next) => {
+// //   const token = req.header("Authorization");
+// //   if (!token) return res.status(401).json({ message: "Access denied. No token provided." });
+
+// //   try {
+// //     const decoded = jwt.verify(token.split(" ")[1], JWT_SECRET);
+// //     req.user = decoded;
+// //     next();
+// //   } catch (error) {
+// //     res.status(400).json({ message: "Invalid token" });
+// //   }
+// // };
+
+// // // Register User (Hash Password)
+// // app.post("/users", async (req, res) => {
+// //   try {
+// //     const { name, email, phone, password, confirmpassword, role } = req.body;
+
+// //     const existingUser = await User.findOne({ email });
+// //     if (existingUser) {
+// //       return res.status(400).json({ message: "User already exists" });
+// //     }
+
+// //     const salt = await bcrypt.genSalt(10);
+// //     const hashedPassword = await bcrypt.hash(password, salt);
+// //     const hashedConfirmPassword = await bcrypt.hash(confirmpassword, salt);
+
+// //     const user = new User({
+// //       name,
+// //       email,
+// //       phone,
+// //       password: hashedPassword,
+// //       confirmpassword: hashedConfirmPassword,
+// //       role,
+// //     });
+
+// //     await user.save();
+// //     res.status(201).json({ message: "Inserted data successfully", user });
+// //   } catch (error) {
+// //     res.status(400).json({ error: error.message });
+// //   }
+// // });
+
+// // // Login User & Generate JWT Token
+// // app.post("/login", async (req, res) => {
+// //   try {
+// //     const { email, password } = req.body;
+
+// //     if (!email || !password) {
+// //       return res.status(400).json({ message: "Email and password are required" });
+// //     }
+
+// //     const user = await User.findOne({ email });
+// //     if (!user) {
+// //       return res.status(400).json({ message: "Invalid email or password" });
+// //     }
+
+// //     const isMatch = await bcrypt.compare(password, user.password);
+// //     if (!isMatch) {
+// //       return res.status(400).json({ message: "Invalid email or password" });
+// //     }
+
+// //     const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, { expiresIn: "1h" });
+
+// //     res.status(200).json({ message: "Login successful", token });
+// //   } catch (error) {
+// //     res.status(500).json({ message: "Internal Server Error" });
+// //   }
+// // });
+
+// // // Get All Users
+// // app.get("/getusers", async (req, res) => {
+// //   try {
+// //     const users = await User.find();
+// //     res.status(200).json(users);
+// //   } catch (error) {
+// //     res.status(400).json({ error: error.message });
+// //   }
+// // });
+
+// // // Update User (with Password Hashing)
+// // app.put("/updateUsers/:id", async (req, res) => {
+// //   try {
+// //     const userid = req.params.id;
+// //     const { name, email, phone, password, confirmpassword, role } = req.body;
+
+// //     const salt = await bcrypt.genSalt(10);
+// //     const hashedPassword = await bcrypt.hash(password, salt);
+// //     const hashedConfirmPassword = await bcrypt.hash(confirmpassword, salt);
+
+// //     const updateUsers = await User.findByIdAndUpdate(
+// //       userid,
+// //       { name, email, phone, password: hashedPassword, confirmpassword: hashedConfirmPassword, role },
+// //       { new: true, runValidators: true }
+// //     );
+
+// //     if (!updateUsers) {
+// //       return res.status(400).json({ message: "User not found to update" });
+// //     }
+
+// //     res.status(200).json({ message: "Updated user successfully" });
+// //   } catch (error) {
+// //     res.status(400).json({ error: error.message });
+// //   }
+// // });
+
+// // // Delete User
+// // app.delete("/deleteuser/:id", async (req, res) => {
+// //   try {
+// //     const userid = req.params.id;
+// //     const deleteuser = await User.findByIdAndDelete(userid);
+// //     if (!deleteuser) {
+// //       return res.status(404).json({ message: "User not found to delete" });
+// //     }
+// //     res.status(200).json({ message: "User deleted successfully" });
+// //   } catch (error) {
+// //     res.status(400).json({ error: error.message });
+// //   }
+// // });
+
+// // // Get Profile (Protected Route)
+// // app.get("/profile", authMiddleware, async (req, res) => {
+// //   try {
+// //     const user = await User.findById(req.user.id).select("-password");
+// //     res.json({ user });
+// //   } catch (error) {
+// //     res.status(400).json({ error: error.message });
+// //   }
+// // });
+
+// // // Home Routes
+// // app.get("/", (req, res) => {
+// //   res.send("<h1>Welcome to Express</h1>");
+// // });
+
+// // app.get("/home", (req, res) => {
+// //   res.send("<h1>Welcome to Home page</h1>");
+// // });
+
+// // // Start Server
+// // const PORT = 3000;
+// // app.listen(PORT, () => {
+// //   console.log(`Express server is running on port ${PORT}`);
+// // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // // const express = require("express");
+// // // const path = require("path");
+// // // const mongoose = require("mongoose");
+// // // const User = require("./models/User");
+// // // const cors = require("cors");
+// // // const bcrypt= require("bcryptjs") 
+
+// // // const app = express(); 
+
+// // // app.use(cors());
+// // // app.use(express.json());
+
+// // // const mongoURI =
+// // //   "mongodb+srv://gowtham444:Gowtham847@cluster0.9rc18.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// // // mongoose
+// // //   .connect(mongoURI)
+// // //   .then(() => {
+// // //     console.log("MongoDB connected successfully");
+// // //   })
+// // //   .catch((error) => {
+// // //     console.log("Unable to connect to MongoDB Atlas: " + error);
+// // //   });
+
+// // // // Insert User
+// // // app.post("/users", async (req, res) => {
+// // //   try {
+// // //     const { name, email, phone, password, confirmpassword, role } = req.body;
+// // //     const user = new User({ name, email, phone, password, confirmpassword, role });
+    
+// // //     await user.save();
+// // //     res.status(201).json({ message: "Inserted data successfully", user: user });
+// // //   } catch (error) {
+// // //     res.status(400).json({ error: error.message });
+// // //   }
+// // // });
+
+// // // app.post("/login", async (req, res) => {
+// // //   try {
+// // //     const { email, password } = req.body;
+    
+// // //     console.log("Login Attempt:", email, password);
+
+// // //     if (!email || !password) {
+// // //       console.log("Missing email or password");
+// // //       return res.status(400).json({ message: "Email and password are required" });
+// // //     }
+
+// // //     const user = await User.findOne({ email });
+
+// // //     if (!user) {
+// // //       console.log("User not found in database");
+// // //       return res.status(400).json({ message: "Invalid email or password" });
+// // //     }
+
+// // //     console.log("Stored Hashed Password in DB:", user.password);
+
+// // //     // Compare entered password with hashed password in DB
+// // //     const isMatch = await bcrypt.compare(password, user.password);
+    
+// // //     console.log("Password Match Status:", isMatch);
+
+// // //     if (!isMatch) {
+// // //       console.log("Password does not match!");
+// // //       return res.status(400).json({ message: "Invalid email or password" });
+// // //     }
+
+// // //     console.log("Login successful");
+// // //     res.status(200).json({ message: "Login successful" });
+
+// // //   } catch (error) {
+// // //     console.error("Server error:", error);
+// // //     res.status(500).json({ message: "Internal Server Error" });
+// // //   }
+// // // });
+
+
+// // // // Get All Users
+// // // app.get("/getusers", async (req, res) => {
+// // //   try {
+// // //     const users = await User.find();
+// // //     res.status(200).json(users);
+// // //   } catch (error) {
+// // //     res.status(400).json({ error: error.message });
+// // //   }
+// // // });
+
+// // // // Update User
+// // // app.put("/updateUsers/:id", async (req, res) => {
+// // //   try {
+// // //     const userid = req.params.id;
+// // //     const { name, email, phone, password, confirmpassword, role } = req.body;
+// // //     const updateUsers = await User.findByIdAndUpdate(
+// // //       userid,
+// // //       { name, email, phone, password, confirmpassword, role },
+// // //       { new: true, runValidators: true }
+// // //     );
+// // //     if (!updateUsers) {
+// // //       return res.status(400).json({ message: "User not found to update" });
+// // //     }
+// // //     res.status(200).json({ message: "Updated user successfully" });
+// // //   } catch (error) {
+// // //     res.status(400).json({ error: error.message });
+// // //   }
+// // // });
+
+// // // // Delete User
+// // // app.delete("/deleteuser/:id", async (req, res) => {
+// // //   try {
+// // //     const userid = req.params.id;
+// // //     const deleteuser = await User.findByIdAndDelete(userid);
+// // //     if (!deleteuser) {
+// // //       return res.status(404).json({ message: "User not found to delete" });
+// // //     }
+// // //     res.status(200).json({ message: "User deleted successfully" });
+// // //   } catch (error) {
+// // //     res.status(400).json({ error: error.message });
+// // //   }
+// // // });
+
+// // // // Home Routes
+// // // app.get("/", (req, res) => {
+// // //   res.send("<h1>Welcome to Express</h1>");
+// // // });
+
+// // // app.get("/home", (req, res) => {
+// // //   res.send("<h1>Welcome to Home page</h1>");
+// // // });
+
+// // // // Start Server
+// // // const PORT = 3000;
+// // // app.listen(PORT, () => {
+// // //   console.log(`Express server is running on port ${PORT}`);
+// // // });
